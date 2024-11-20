@@ -4,7 +4,7 @@ class BinaryTree():
         self.left = None
         self.right = None
 
-    def child(self, data):
+    def insert(self, data):
         if self.data == data:
             return
         
