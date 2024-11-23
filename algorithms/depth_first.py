@@ -1,23 +1,23 @@
 class BinaryTree():
-    def __init__(self, data):
+    def __init__(self, data:int):
         self.data = data
         self.left = None
         self.right = None
 
-    def insert(self, data):
+    def insert(self, data:list[int]):
         if self.data == data:
             return
         
         if data < self.data:
             if self.left:
-                self.left.child(data)
+                self.left.insert(data)
             
             else:
                 self.left = BinaryTree(data)
 
         if data > self.data:
             if self.right:
-                self.right.child(data)
+                self.right.insert(data)
             
             else:
                 self.right = BinaryTree(data)
@@ -35,7 +35,7 @@ class BinaryTree():
         
         return elements
 
-    def depth_first_search(self, val):
+    def depth_first_search(self, val:int):
         if self.data == val:
             return True
         
@@ -52,10 +52,10 @@ class BinaryTree():
                 return False
 
 
-def build_tree(data):
+def build_tree(data:list[int]):
     root = BinaryTree(data[0])
     for i in range(1, len(data)):
-        root.child(data[i])
+        root.insert(data[i])
     
     return root
 
